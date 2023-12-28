@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".movieActivity">
 
-    <LinearLayout
+    <!-- Movie Banner -->
+    <ImageView
+        android:id="@+id/movieBanner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Movie Title -->
+    <TextView
+        android:id="@+id/movieTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center">
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
 
-        <ImageView
-            android:id="@+id/movieBanner"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/isawghetti"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="16dp"/>
+    <!-- Movie Description -->
+    <TextView
+        android:id="@+id/movieDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="14sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/movieID"
-            android:text="movie page"
-            android:textSize="50sp"/>
+    <!-- Generate Random Movie Button -->
+    <Button
+        android:id="@+id/randomMovieButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate Random Movie"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/randomMovieButton"
-            android:text="home"
-            android:textSize="30sp"/>
-
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/homeButtonMovie"
-            android:text="home"
-            android:textSize="30sp"/>
-
-    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/homeButtonMovie"
+        android:text="home"
+        android:textSize="30sp"/>
 
 </LinearLayout>

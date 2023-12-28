@@ -1,11 +1,14 @@
 package com.example.formary
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
+import com.example.formary.MovieDatabaseHandler
+import com.example.formary.R
 
 class movieActivity : AppCompatActivity() {
 
@@ -15,15 +18,24 @@ class movieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.moviepage)
 
+        val homeButton = findViewById<Button>(R.id.homeButtonMovie)
+
+        homeButton.setOnClickListener {
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+        }
+
         // Creating an instance of the MovieDatabaseHandler
         movieDbHandler = MovieDatabaseHandler(this)
 
         // Adding sample movies
-        movieDbHandler.addMovie("Movie 1", "A great movie with an exciting plot.", "banner1")
-        movieDbHandler.addMovie("Movie 2", "An emotional journey that will touch your heart.", "banner2")
-        movieDbHandler.addMovie("Movie 3", "A thrilling adventure for the whole family.", "banner3")
-        movieDbHandler.addMovie("Movie 4", "A mind-bending experience that will leave you thinking.", "banner4")
-        movieDbHandler.addMovie("Movie 5", "A classic film that stands the test of time.", "banner5")
+        movieDbHandler.addMovie("Movie 1", "A great movie with an exciting plot.", "drawable/movie1")
+        movieDbHandler.addMovie("Movie 2", "An emotional journey that will touch your heart.", "drawable/movie2")
+        movieDbHandler.addMovie("Movie 3", "A thrilling adventure for the whole family.", "drawable/movie3")
+        movieDbHandler.addMovie("Movie 4", "A mind-bending experience that will leave you thinking.", "drawable/movie4")
+        movieDbHandler.addMovie("Movie 5", "A classic film that stands the test of time.", "drawable/movie5")
 
         // Retrieving a random movie entry
         val randomMovie = movieDbHandler.getRandomMovie()
@@ -31,30 +43,41 @@ class movieActivity : AppCompatActivity() {
             Log.d("Random Movie", "ID: ${it.id}, Title: ${it.title}, Description: ${it.description}, Banner Path: ${it.bannerPath}")
         }
 
-        // Assuming you have an ImageView in your layout with ID R.id.movieBanner
+        // Assuming you have TextViews and an ImageView in your layout with appropriate IDs
+        val movieTitleTextView = findViewById<TextView>(R.id.movieTitle)
+        val movieDescriptionTextView = findViewById<TextView>(R.id.movieDescription)
         val movieBannerImageView = findViewById<ImageView>(R.id.movieBanner)
-
-        // Load the image using Glide with the resource ID
-        Glide.with(this)
-            .load(resources.getIdentifier(randomMovie?.bannerPath, "drawable", packageName))
-            .into(movieBannerImageView)
-
         val generateMovieButton = findViewById<Button>(R.id.randomMovieButton)
 
-        generateMovieButton.setOnClickListener {
+        // Update TextViews with movie information
+        movieTitleTextView.text = randomMovie?.title
+        movieDescriptionTextView.text = randomMovie?.description
 
+        // Set the image resource using setImageResource
+        val resourceId = resources.getIdentifier(randomMovie?.bannerPath, "drawable", packageName)
+        if (resourceId != 0) {
+            movieBannerImageView.setImageResource(resourceId)
+        }
+
+        generateMovieButton.setOnClickListener {
             // Calling getRandomMovie on the instance of MovieDatabaseHandler
-            val randomMovie = movieDbHandler.getRandomMovie()
+            val newRandomMovie = movieDbHandler.getRandomMovie()
 
             // Check if a random movie is retrieved and log its details
-            randomMovie?.let {
+            newRandomMovie?.let {
                 Log.d("Random Movie", "ID: ${it.id}, Title: ${it.title}, Description: ${it.description}, Banner Path: ${it.bannerPath}")
             }
 
-            // Load the new movie banner into the ImageView using Glide
-            Glide.with(this)
-                .load(resources.getIdentifier(randomMovie?.bannerPath, "drawable", packageName))
-                .into(movieBannerImageView)
+            // Update TextViews with new movie information
+            movieTitleTextView.text = newRandomMovie?.title
+            movieDescriptionTextView.text = newRandomMovie?.description
+
+            // Set the new image resource using setImageResource
+            val newResourceId =
+                resources.getIdentifier(newRandomMovie?.bannerPath, "drawable", packageName)
+            if (newResourceId != 0) {
+                movieBannerImageView.setImageResource(newResourceId)
+            }
         }
     }
 }
