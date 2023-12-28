@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="GirlyText">
+        <item name="android:fontFamily">@font/girlfont</item>
+        <item name="android:textColor">#FF4081</item>
+    </style>
+
+    <style name="GirlyButton" parent="android:Widget.Button">
+        <item name="android:fontFamily">@font/girlfont</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">@drawable/pink_button_background</item>
+        <item name="android:padding">16dp</item> <!-- Increase button padding -->
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:layout_margin">8dp</item> <!-- Add margin to the buttons -->
+    </style>
+
+</resources>
+
