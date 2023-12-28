@@ -14,11 +14,9 @@ class lonelyActivity : AppCompatActivity() {
 
         val homeButton = findViewById<Button>(R.id.homeButtonLonely)
 
-        homeButton.setOnClickListener{
-
+        homeButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
         }
 
         // Creating an instance of the LonelyDatabaseHandler
@@ -37,10 +35,13 @@ class lonelyActivity : AppCompatActivity() {
             Log.d("Random Lonely", "ID: ${it.id}, Title: ${it.title}, Lonely: ${it.lonely}")
         }
 
-        val lonely = randomLonely
-        val lonelyString = lonely.toString()
-        val displayLonely = findViewById<TextView>(R.id.lonelyID)
-        displayLonely.text = lonelyString
+        val lonelyTitle = findViewById<TextView>(R.id.lonelyTitle)
+        val lonelyContent = findViewById<TextView>(R.id.lonelyID)
+
+        randomLonely?.let {
+            lonelyTitle.text = it.title
+            lonelyContent.text = it.lonely
+        }
 
         val generateLonelyButton = findViewById<Button>(R.id.randomLonelyButton)
 
@@ -54,10 +55,10 @@ class lonelyActivity : AppCompatActivity() {
                 Log.d("Random Lonely", "ID: ${it.id}, Title: ${it.title}, Lonely: ${it.lonely}")
             }
 
-            val randomLonelyGetString = randomLonely
-            val usableRandomLonely = randomLonelyGetString.toString()
-            displayLonely.text = usableRandomLonely
+            randomLonely?.let {
+                lonelyTitle.text = it.title
+                lonelyContent.text = it.lonely
+            }
         }
-
     }
 }

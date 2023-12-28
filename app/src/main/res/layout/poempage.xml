@@ -49,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/randomPoemButton"
-            android:text="Generate new poem"
+            android:text="randomize"
             android:textSize="25sp"
             style="@style/GirlyButton"
             android:paddingTop="20dp"
