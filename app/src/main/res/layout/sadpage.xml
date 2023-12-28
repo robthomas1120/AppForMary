@@ -18,6 +18,23 @@
             android:textSize="30sp"
             android:paddingBottom="50dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sad text here"
+            android:id="@+id/sadID"
+            android:paddingTop="50dp"
+            android:textSize="30sp"
+            android:paddingBottom="50dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/randomSadButton"
+            android:text="random"
+            android:textSize="30sp"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

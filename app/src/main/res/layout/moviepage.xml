@@ -10,13 +10,29 @@
         android:orientation="vertical"
         android:layout_gravity="center">
 
+        <ImageView
+            android:id="@+id/movieBanner"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/isawghetti"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movie Page"
-            android:paddingTop="50dp"
-            android:textSize="30sp"
-            android:paddingBottom="50dp"/>
+            android:id="@+id/movieID"
+            android:text="movie page"
+            android:textSize="50sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/randomMovieButton"
+            android:text="home"
+            android:textSize="30sp"/>
+
 
         <Button
             android:layout_width="wrap_content"
