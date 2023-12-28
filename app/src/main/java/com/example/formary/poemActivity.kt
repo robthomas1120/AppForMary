@@ -15,10 +15,8 @@ class poemActivity : AppCompatActivity() {
         val homeButton = findViewById<Button>(R.id.homeButtonPoem)
 
         homeButton.setOnClickListener{
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
         }
 
         val poemDbHandler = DatabaseHandler(this)
@@ -36,28 +34,31 @@ class poemActivity : AppCompatActivity() {
             Log.d("Random Poem", "ID: ${it.id}, Title: ${it.title}, Poem: ${it.poem}")
         }
 
-        val poem = randomPoem
-        val poemString = poem.toString()
-        val displayPoem =findViewById<TextView>(R.id.poemID)
-        displayPoem.text = poemString
+        val displayTitle = findViewById<TextView>(R.id.poemIDTitle)
+        val displayPoem = findViewById<TextView>(R.id.poemID)
+
+        // Display poem title and content
+        randomPoem?.let {
+            displayTitle.text = it.title
+            displayTitle.gravity = android.view.Gravity.CENTER
+            displayPoem.text = it.poem
+        }
 
         val generatePoemButton = findViewById<Button>(R.id.randomPoemButton)
 
         generatePoemButton.setOnClickListener{
+            val newRandomPoem = poemDbHandler.getRandomPoem()
 
-            val randomPoem = poemDbHandler.getRandomPoem()
-
-            // Check if a random poem is retrieved and log its details
-            randomPoem?.let {
+            // Check if a new random poem is retrieved and log its details
+            newRandomPoem?.let {
                 Log.d("Random Poem", "ID: ${it.id}, Title: ${it.title}, Poem: ${it.poem}")
             }
 
-            val randomPoemGetString = randomPoem
-            val usableRandomPoem = randomPoemGetString.toString()
-            displayPoem.text = usableRandomPoem
-
+            // Display new random poem title and content
+            newRandomPoem?.let {
+                displayTitle.text = it.title
+                displayPoem.text = it.poem
+            }
         }
-
-
     }
 }

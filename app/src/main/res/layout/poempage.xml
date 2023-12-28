@@ -2,47 +2,68 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFE4E1"
+    android:gravity="center_vertical"> <!-- Added layout_gravity for vertical centering -->
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:gravity="center"
+        android:layout_gravity="center"> <!-- Added layout_gravity for horizontal centering -->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Poem Page"
-            android:paddingTop="50dp"
+            android:text="100 Poems for Mary"
+            android:paddingTop="20dp"
             android:textSize="30sp"
-            android:paddingBottom="50dp"/>
+            android:paddingBottom="20dp"
+            android:textStyle="bold"
+            android:textColor="#FF4081"/> <!-- Apply bold style and deep pink color -->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="poem here"
+            android:id="@+id/poemIDTitle"
+            android:text="Poem Title"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#FF4081" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/poemID"
-            android:paddingTop="50dp"
+            android:text="poem here"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="20dp"
             android:textSize="30sp"
-            android:paddingBottom="50dp"/>
-
+            android:paddingBottom="20dp"
+            android:textColor="#FF4081"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:id="@+id/randomPoemButton"
             android:text="Generate new poem"
-            android:textSize="25sp"/>
+            android:textSize="25sp"
+            style="@style/GirlyButton"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"/> <!-- Apply the GirlyButton style -->
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:id="@+id/homeButtonPoem"
             android:text="home"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            style="@style/GirlyButton"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"/> <!-- Apply the GirlyButton style -->
 
     </LinearLayout>
 
