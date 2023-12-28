@@ -21,10 +21,8 @@ class songsActivity : AppCompatActivity() {
         val homeButton = findViewById<Button>(R.id.homeButtonSong)
 
         homeButton.setOnClickListener {
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
         }
 
         // Creating an instance of the SongDatabaseHandler

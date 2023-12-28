@@ -5,65 +5,95 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="16dp"
+    android:background="#FFE4E1"
     tools:context=".songsActivity">
 
-    <!-- Song Image -->
-    <ImageView
-        android:id="@+id/songImage"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp"/>
-
-    <!-- Song Title -->
-    <TextView
-        android:id="@+id/songTitle"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"/>
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <!-- Artist Name -->
-    <TextView
-        android:id="@+id/artistName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="14sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/titleID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Songs"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+        android:textColor="#FF4081"/>
 
-    <!-- Song Description -->
-    <TextView
-        android:id="@+id/songDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="14sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"/>
+        <!-- Song Image -->
+        <ImageView
+            android:id="@+id/songImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp" /> <!-- Increased margin from 16dp --> <!-- Set a default image resource if needed -->
 
-    <!-- Generate Random Song Button -->
-    <Button
-        android:id="@+id/randomSongButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Generate Random Song"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"/>
+        <!-- Song Title -->
+        <TextView
+            android:id="@+id/songTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:textColor="#FF4081"/> <!-- Apply deep pink color -->
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/homeButtonSong"
-        android:text="home"
-        android:textSize="30sp"/>
+        <!-- Artist Name -->
+        <TextView
+            android:id="@+id/artistName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:textColor="#FF4081"/> <!-- Apply deep pink color -->
+
+        <!-- Song Description -->
+        <TextView
+            android:id="@+id/songDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
+        android:textColor="#FF4081"/> <!-- Apply deep pink color -->
+
+        <!-- Generate Random Song Button -->
+        <Button
+            android:id="@+id/randomSongButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generate Random Song"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            style="@style/GirlyButton"
+            android:textColor="#FF4081"/> <!-- Apply the GirlyButton style and deep pink color -->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/homeButtonSong"
+            android:text="home"
+            android:textSize="30sp"
+            style="@style/GirlyButton"
+            android:layout_marginTop="16dp"
+            android:textColor="#FF4081"/>
+
+    </LinearLayout>
 
 </LinearLayout>

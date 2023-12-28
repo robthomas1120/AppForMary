@@ -6,54 +6,72 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="#FFE4E1"
     tools:context=".seriesActivity">
 
-    <!-- TV Series Banner -->
-    <ImageView
-        android:id="@+id/tvSeriesBanner"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp"/>
-
-    <!-- TV Series Title -->
-    <TextView
-        android:id="@+id/tvSeriesTitle"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center">
 
-    <!-- TV Series Description -->
-    <TextView
-        android:id="@+id/tvSeriesDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="14sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"/>
+        <!-- TV Series Banner -->
+        <ImageView
+            android:id="@+id/tvSeriesBanner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"/>
 
-    <!-- Generate Random TV Series Button -->
-    <Button
-        android:id="@+id/randomSeriesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Generate Random TV Series"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"/>
+        <!-- TV Series Title -->
+        <TextView
+            android:id="@+id/tvSeriesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:textColor="#FF4081"/> <!-- Apply deep pink color -->
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/homeButtonSeries"
-        android:text="home"
-        android:textSize="30sp"/>
+        <!-- TV Series Description -->
+        <TextView
+            android:id="@+id/tvSeriesDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="14sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#FF4081"/> <!-- Apply deep pink color -->
+
+        <!-- Generate Random TV Series Button -->
+        <Button
+            android:id="@+id/randomSeriesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generate Random TV Series"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            style="@style/GirlyButton"
+            android:textColor="#FF4081"/> <!-- Apply the GirlyButton style and deep pink color -->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/homeButtonSeries"
+            android:text="home"
+            android:textSize="30sp"
+            style="@style/GirlyButton"
+            android:layout_marginTop="16dp"
+            android:textColor="#FF4081"/> <!-- Apply the GirlyButton style and deep pink color -->
+
+
+    </LinearLayout>
 
 </LinearLayout>
