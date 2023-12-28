@@ -2,46 +2,69 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFE4E1"
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         android:layout_gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sad Page"
-            android:paddingTop="50dp"
+            android:paddingTop="20dp"
             android:textSize="30sp"
-            android:paddingBottom="50dp"/>
+            android:paddingBottom="20dp"
+            android:textStyle="bold"
+            android:textColor="#FF4081"/> <!-- Apply bold style and deep pink color -->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sad text here"
-            android:id="@+id/sadID"
-            android:paddingTop="50dp"
+            android:id="@+id/sadTitle"
+            android:text="Title"
+            android:gravity="center"
             android:textSize="30sp"
-            android:paddingBottom="50dp"/>
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textStyle="bold"
+            android:textColor="#FF4081"/> <!-- Apply italic style and deep pink color -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sadID"
+            android:text="Sad text here"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textColor="#FF4081"/> <!-- Apply deep pink color -->
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:id="@+id/randomSadButton"
-            android:text="random"
-            android:textSize="30sp"/>
+            android:text="Random"
+            android:textSize="25sp"
+            style="@style/GirlyButton"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"/> <!-- Apply the GirlyButton style -->
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:id="@+id/homeButtonSad"
-            android:text="home"
-            android:textSize="30sp"/>
+            android:text="Home"
+            android:textSize="30sp"
+            style="@style/GirlyButton"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"/> <!-- Apply the GirlyButton style -->
 
     </LinearLayout>
 
