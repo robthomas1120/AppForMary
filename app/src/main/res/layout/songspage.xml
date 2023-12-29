@@ -25,7 +25,7 @@
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="32dp"
-        android:textColor="#FF4081"/>
+            android:textColor="#FF4081"/>
 
         <!-- Song Image -->
         <ImageView
@@ -35,7 +35,7 @@
             android:scaleType="centerCrop"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp" /> <!-- Increased margin from 16dp --> <!-- Set a default image resource if needed -->
+            android:layout_marginBottom="32dp" /> <!-- Increased margin from 16dp --> <!-- Set a default image resource if needed -->
 
         <!-- Song Title -->
         <TextView
@@ -70,29 +70,35 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="32dp"
-        android:textColor="#FF4081"/> <!-- Apply deep pink color -->
+            android:textColor="#FF4081"/> <!-- Apply deep pink color -->
 
-        <!-- Generate Random Song Button -->
-        <Button
-            android:id="@+id/randomSongButton"
+        <!-- Horizontal Linear Layout for Image Buttons -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Generate Random Song"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            style="@style/GirlyButton"
-            android:textColor="#FF4081"/> <!-- Apply the GirlyButton style and deep pink color -->
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/homeButtonSong"
-            android:text="home"
-            android:textSize="30sp"
-            style="@style/GirlyButton"
-            android:layout_marginTop="16dp"
-            android:textColor="#FF4081"/>
+            <!-- Generate Random Song Button -->
+            <ImageButton
+                android:id="@+id/randomSongImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shuffle"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"/>
+
+            <!-- Home Button -->
+            <ImageButton
+                android:id="@+id/homeButtonSongImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

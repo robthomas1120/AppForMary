@@ -3,12 +3,10 @@ package com.example.formary
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.formary.R
-import com.example.formary.TVSeriesDatabaseHandler
 
 class seriesActivity : AppCompatActivity() {
 
@@ -18,13 +16,42 @@ class seriesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.seriespage)
 
-        val homeButton = findViewById<Button>(R.id.homeButtonSeries)
+        val homeButton = findViewById<ImageButton>(R.id.homeButtonSeriesImageButton)
+        val shuffleButton = findViewById<ImageButton>(R.id.randomSeriesImageButton)
 
         homeButton.setOnClickListener {
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 
+        }
+
+        shuffleButton.setOnClickListener {
+            // Calling getRandomSeries on the instance of TVSeriesDatabaseHandler
+            val newRandomSeries = seriesDbHandler.getRandomSeries()
+
+            // Check if a random TV series is retrieved and log its details
+            newRandomSeries?.let {
+                Log.d(
+                    "Random TV Series",
+                    "ID: ${it.id}, Title: ${it.title}, Description: ${it.description}, Banner Path: ${it.bannerPath}"
+                )
+            }
+
+            // Update TextViews with new TV series information
+            val seriesTitleTextView = findViewById<TextView>(R.id.tvSeriesTitle)
+            val seriesDescriptionTextView = findViewById<TextView>(R.id.tvSeriesDescription)
+            val seriesBannerImageView = findViewById<ImageView>(R.id.tvSeriesBanner)
+
+            seriesTitleTextView.text = newRandomSeries?.title
+            seriesDescriptionTextView.text = newRandomSeries?.description
+
+            // Set the new image resource using setImageResource
+            val newResourceId =
+                resources.getIdentifier(newRandomSeries?.bannerPath, "drawable", packageName)
+            if (newResourceId != 0) {
+                seriesBannerImageView.setImageResource(newResourceId)
+            }
         }
 
         // Creating an instance of the TVSeriesDatabaseHandler
@@ -50,7 +77,6 @@ class seriesActivity : AppCompatActivity() {
         val seriesTitleTextView = findViewById<TextView>(R.id.tvSeriesTitle)
         val seriesDescriptionTextView = findViewById<TextView>(R.id.tvSeriesDescription)
         val seriesBannerImageView = findViewById<ImageView>(R.id.tvSeriesBanner)
-        val generateSeriesButton = findViewById<Button>(R.id.randomSeriesButton)
 
         // Update TextViews with TV series information
         seriesTitleTextView.text = randomSeries?.title
@@ -60,30 +86,6 @@ class seriesActivity : AppCompatActivity() {
         val resourceId = resources.getIdentifier(randomSeries?.bannerPath, "drawable", packageName)
         if (resourceId != 0) {
             seriesBannerImageView.setImageResource(resourceId)
-        }
-
-        generateSeriesButton.setOnClickListener {
-            // Calling getRandomSeries on the instance of TVSeriesDatabaseHandler
-            val newRandomSeries = seriesDbHandler.getRandomSeries()
-
-            // Check if a random TV series is retrieved and log its details
-            newRandomSeries?.let {
-                Log.d(
-                    "Random TV Series",
-                    "ID: ${it.id}, Title: ${it.title}, Description: ${it.description}, Banner Path: ${it.bannerPath}"
-                )
-            }
-
-            // Update TextViews with new TV series information
-            seriesTitleTextView.text = newRandomSeries?.title
-            seriesDescriptionTextView.text = newRandomSeries?.description
-
-            // Set the new image resource using setImageResource
-            val newResourceId =
-                resources.getIdentifier(newRandomSeries?.bannerPath, "drawable", packageName)
-            if (newResourceId != 0) {
-                seriesBannerImageView.setImageResource(newResourceId)
-            }
         }
     }
 }

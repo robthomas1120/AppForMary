@@ -4,11 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.formary.MovieDatabaseHandler
-import com.example.formary.R
 
 class movieActivity : AppCompatActivity() {
 
@@ -18,13 +17,37 @@ class movieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.moviepage)
 
-        val homeButton = findViewById<Button>(R.id.homeButtonMovie)
+        val homeButton = findViewById<ImageButton>(R.id.homeButtonMovieImageButton)
+        val shuffleButton = findViewById<ImageButton>(R.id.randomMovieImageButton)
 
         homeButton.setOnClickListener {
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+        }
 
+        shuffleButton.setOnClickListener {
+            // Calling getRandomMovie on the instance of MovieDatabaseHandler
+            val newRandomMovie = movieDbHandler.getRandomMovie()
+
+            // Check if a random movie is retrieved and log its details
+            newRandomMovie?.let {
+                Log.d("Random Movie", "ID: ${it.id}, Title: ${it.title}, Description: ${it.description}, Banner Path: ${it.bannerPath}")
+            }
+
+            // Update TextViews with new movie information
+            val movieTitleTextView = findViewById<TextView>(R.id.movieTitle)
+            val movieDescriptionTextView = findViewById<TextView>(R.id.movieDescription)
+            val movieBannerImageView = findViewById<ImageView>(R.id.movieBanner)
+
+            movieTitleTextView.text = newRandomMovie?.title
+            movieDescriptionTextView.text = newRandomMovie?.description
+
+            // Set the new image resource using setImageResource
+            val newResourceId =
+                resources.getIdentifier(newRandomMovie?.bannerPath, "drawable", packageName)
+            if (newResourceId != 0) {
+                movieBannerImageView.setImageResource(newResourceId)
+            }
         }
 
         // Creating an instance of the MovieDatabaseHandler

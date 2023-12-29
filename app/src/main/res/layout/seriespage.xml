@@ -49,28 +49,34 @@
             android:layout_marginBottom="16dp"
             android:textColor="#FF4081"/> <!-- Apply deep pink color -->
 
-        <!-- Generate Random TV Series Button -->
-        <Button
-            android:id="@+id/randomSeriesButton"
+        <!-- Horizontal Linear Layout for Image Buttons -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Generate Random TV Series"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            style="@style/GirlyButton"
-            android:textColor="#FF4081"/> <!-- Apply the GirlyButton style and deep pink color -->
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/homeButtonSeries"
-            android:text="home"
-            android:textSize="30sp"
-            style="@style/GirlyButton"
-            android:layout_marginTop="16dp"
-            android:textColor="#FF4081"/> <!-- Apply the GirlyButton style and deep pink color -->
+            <!-- Generate Random TV Series Button -->
+            <ImageButton
+                android:id="@+id/randomSeriesImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shuffle"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:padding="20dp"/>
 
+            <!-- Home Button -->
+            <ImageButton
+                android:id="@+id/homeButtonSeriesImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_gravity="center"
+                android:padding="20dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -3,7 +3,7 @@ package com.example.formary
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -12,7 +12,8 @@ class sadActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sadpage)
 
-        val homeButton = findViewById<Button>(R.id.homeButtonSad)
+        val homeButton = findViewById<ImageButton>(R.id.homeButtonSad)
+        val shuffleButton = findViewById<ImageButton>(R.id.randomSadButton)
 
         homeButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -43,9 +44,7 @@ class sadActivity : AppCompatActivity() {
             sadID.text = it.sad
         }
 
-        val generateSadButton = findViewById<Button>(R.id.randomSadButton)
-
-        generateSadButton.setOnClickListener {
+        shuffleButton.setOnClickListener {
 
             // Calling getRandomSad on the instance of SadDatabaseHandler
             val randomSad = sadDbHandler.getRandomSad()

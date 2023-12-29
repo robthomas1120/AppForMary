@@ -1,18 +1,19 @@
 package com.example.formary
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class lonelyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lonelypage)
 
-        val homeButton = findViewById<Button>(R.id.homeButtonLonely)
+        val homeButton = findViewById<ImageButton>(R.id.homeButtonLonely)
+        val shuffleButton = findViewById<ImageButton>(R.id.randomLonelyButton)
 
         homeButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -43,9 +44,7 @@ class lonelyActivity : AppCompatActivity() {
             lonelyContent.text = it.lonely
         }
 
-        val generateLonelyButton = findViewById<Button>(R.id.randomLonelyButton)
-
-        generateLonelyButton.setOnClickListener {
+        shuffleButton.setOnClickListener {
 
             // Calling getRandomLonely on the instance of LonelyDatabaseHandler
             val randomLonely = lonelyDbHandler.getRandomLonely()

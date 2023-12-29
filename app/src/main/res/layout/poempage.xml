@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -45,25 +46,30 @@
             android:paddingBottom="20dp"
             android:textColor="#FF4081"/>
 
-        <Button
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/randomPoemButton"
-            android:text="randomize"
-            android:textSize="25sp"
-            style="@style/GirlyButton"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"/> <!-- Apply the GirlyButton style -->
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/homeButtonPoem"
-            android:text="home"
-            android:textSize="30sp"
-            style="@style/GirlyButton"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"/> <!-- Apply the GirlyButton style -->
+            <!-- Shuffle ImageButton -->
+            <ImageButton
+                android:id="@+id/randomPoemButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shuffle"
+                android:background="@android:color/transparent"
+                android:padding="20dp"/> <!-- Use the shuffle.png icon and set padding -->
+
+            <!-- Home ImageButton -->
+            <ImageButton
+                android:id="@+id/homeButtonPoem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home"
+                android:background="@android:color/transparent"
+                android:padding="20dp"/> <!-- Use the home.png icon and set padding -->
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -60,16 +60,32 @@
             style="@style/GirlyButton"
             android:textColor="#FF4081"/> <!-- Apply the GirlyButton style and deep pink color -->
 
-        <Button
+        <!-- ImageButtons in Horizontal LinearLayout with Padding -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/homeButtonMovie"
-            android:text="home"
-            android:textSize="30sp"
-            style="@style/GirlyButton"
-            android:layout_marginTop="16dp"
-            android:textColor="#FF4081"/>
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/randomMovieImageButton"
+                android:src="@drawable/shuffle"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingEnd="20dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/homeButtonMovieImageButton"
+                android:src="@drawable/home"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingStart="20dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

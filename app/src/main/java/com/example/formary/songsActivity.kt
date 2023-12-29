@@ -3,12 +3,10 @@ package com.example.formary
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.formary.SongDatabaseHandler
-import com.example.formary.R
 
 class songsActivity : AppCompatActivity() {
 
@@ -18,7 +16,8 @@ class songsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.songspage)
 
-        val homeButton = findViewById<Button>(R.id.homeButtonSong)
+        val homeButton = findViewById<ImageButton>(R.id.homeButtonSongImageButton)
+        val shuffleButton = findViewById<ImageButton>(R.id.randomSongImageButton)
 
         homeButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -46,7 +45,6 @@ class songsActivity : AppCompatActivity() {
         val artistNameTextView = findViewById<TextView>(R.id.artistName)
         val songDescriptionTextView = findViewById<TextView>(R.id.songDescription)
         val songImageView = findViewById<ImageView>(R.id.songImage)
-        val generateSongButton = findViewById<Button>(R.id.randomSongButton)
 
         // Update TextViews with song information
         songTitleTextView.text = randomSong?.title
@@ -62,7 +60,7 @@ class songsActivity : AppCompatActivity() {
             // songImageView.setImageResource(R.drawable.default_image)
         }
 
-        generateSongButton.setOnClickListener {
+        shuffleButton.setOnClickListener {
             // Calling getRandomSong on the instance of SongDatabaseHandler
             val newRandomSong = songDbHandler.getRandomSong()
 

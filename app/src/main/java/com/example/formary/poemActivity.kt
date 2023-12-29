@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 
 class poemActivity : AppCompatActivity() {
@@ -12,9 +12,10 @@ class poemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.poempage)
 
-        val homeButton = findViewById<Button>(R.id.homeButtonPoem)
+        val homeButton = findViewById<ImageButton>(R.id.homeButtonPoem)
+        val shuffleButton = findViewById<ImageButton>(R.id.randomPoemButton)
 
-        homeButton.setOnClickListener{
+        homeButton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -44,9 +45,7 @@ class poemActivity : AppCompatActivity() {
             displayPoem.text = it.poem
         }
 
-        val generatePoemButton = findViewById<Button>(R.id.randomPoemButton)
-
-        generatePoemButton.setOnClickListener{
+        shuffleButton.setOnClickListener {
             val newRandomPoem = poemDbHandler.getRandomPoem()
 
             // Check if a new random poem is retrieved and log its details

@@ -46,25 +46,34 @@
             android:paddingBottom="20dp"
             android:textColor="#FF4081"/> <!-- Apply deep pink color -->
 
-        <Button
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/randomSadButton"
-            android:text="Random"
-            android:textSize="25sp"
-            style="@style/GirlyButton"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"/> <!-- Apply the GirlyButton style -->
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/homeButtonSad"
-            android:text="Home"
-            android:textSize="30sp"
-            style="@style/GirlyButton"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"/> <!-- Apply the GirlyButton style -->
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/randomSadButton"
+                android:src="@drawable/shuffle"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:padding="20dp"/> <!-- Set image src and apply the selectableItemBackground -->
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/homeButtonSad"
+                android:src="@drawable/home"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:padding="20dp"/> <!-- Set image src and apply the selectableItemBackground -->
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
